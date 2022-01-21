@@ -25,7 +25,7 @@ public class QueueService implements Service {
         if (messages == null) {
             messages = new ConcurrentLinkedQueue<>();
             messages.add(req.text());
-            this.queue.putIfAbsent(req.theme(), new ConcurrentLinkedQueue<>());
+            queue.putIfAbsent(req.theme(), messages);
         } else {
             messages.add(req.text());
         }
